@@ -1,6 +1,6 @@
-import logo from './logo.svg';
+
 import './App.css';
-import  PerfilPr  from "./components/PerfilPr";
+
 import { InicioSesion } from './components/Inicio/InicioSesion';
 import  Nanvar_Horizontal  from './components/Nanvar/Nanvar_Horizontal';
 
@@ -14,16 +14,12 @@ function App() {
      
       <header className="App-header">
         
-        
-
-        
-       
        <InicioSesion/>
         
 
         
       </header>
-      <PerfilPr/>
+   
 
 
     </div>

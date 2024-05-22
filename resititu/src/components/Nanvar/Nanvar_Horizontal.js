@@ -13,10 +13,15 @@ const Nanvar_Horizontal = () => {
        
           </div>   
           <span className='nomb-inst'>Instituto Tecnológico de Chihuhua II
-        <p><strong>Recidencias y Titulacion</strong></p>
+        
 
         </span>
+       
         </nav>
+        <nav>
+         <span><strong>Recidencias y Titulacion</strong></span>
+          </nav>
+        
     </div>
   );
 }
