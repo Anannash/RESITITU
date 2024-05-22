@@ -1,6 +1,7 @@
 import React from 'react'
 import './InicioS.css';
 
+
 export const InicioSesion = () => {
   return (
     <div className='cuadro'>
@@ -12,7 +13,12 @@ export const InicioSesion = () => {
       <h3> Ingrese su contraseña: </h3>
       <><input type="password" placeholder="Contraseña" /></>
 
-      <p><button>Iniciar Sesión</button></p>
+      <p><button 
+          className="bg-transparent hover:bg-rojoVino text-rojoVino font-semibold
+                     hover:text-white py-2 px-4 border 
+                     border-rojoVino hover:border-transparent rounded"
+        >
+        Iniciar Sesión</button></p>
       
         
      

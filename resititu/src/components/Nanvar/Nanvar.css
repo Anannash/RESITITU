@@ -1,10 +1,10 @@
 nav{
     background-color: #792221;
-    font-size: 30px;
-    color: #FAFAFA;
-    display: flex;
-    justify-content: center;
-    height: 50px;
+    font-size: 30px; /*Tamno de la letra */
+    color: #FAFAFA; /*Color letra*/
+    display: flex; /*nose :3*/
+    justify-content: center; 
+    height: 50px; 
     
 }
 
