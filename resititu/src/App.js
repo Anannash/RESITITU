@@ -21,7 +21,7 @@ function App() {
       <header className="App-header">
         
       {/*<InicioSesion/>*/}
-       <PerfilPr/>
+      {/* */} <PerfilPr/>
         
 
         
