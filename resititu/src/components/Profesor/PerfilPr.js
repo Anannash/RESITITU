@@ -11,7 +11,6 @@ const PerfilPr = () => {
       fetchData();
     }
   };
-
   const fetchData = async () => {
     const data = [
       {

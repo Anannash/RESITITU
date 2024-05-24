@@ -1,31 +1,66 @@
-import React from 'react'
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './InicioS.css';
 
-
 export const InicioSesion = () => {
+  const [controlNumber, setControlNumber] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
+  const navigate = useNavigate();
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+
+    // Validación simple de los campos de entrada
+    if (!controlNumber || !password) {
+      setError('Por favor, ingrese su número de control y contraseña.');
+      return;
+    }
+
+    // Simulación de autenticación
+    if (controlNumber === '21550748' && password === '12345678') {
+      // Redirigir a otra página en caso de éxito
+      navigate('/perfil');
+    } else {
+      setError('Número de control o contraseña incorrectos.');
+    }
+  };
+
   return (
     <div className='cuadro'>
-      <h1>Inicio de Sesion</h1>
+      <h1>Inicio de Sesión</h1>
+      {error && <p style={{ color: 'red' }}>{error}</p>}
 
-      <h3> Ingrese su numero de control: </h3>
-      <><input type="text" placeholder="Numero de control" /></>
+      <form onSubmit={handleLogin}>
+        <h3>Ingrese su número de control:</h3>
+        <input
+          type="text"
+          placeholder="Número de control"
+          value={controlNumber}
+          onChange={(e) => setControlNumber(e.target.value)}
+        />
 
-      <h3> Ingrese su contraseña: </h3>
-      <><input type="password" placeholder="Contraseña" /></>
+        <h3>Ingrese su contraseña:</h3>
+        <input
+          type="password"
+          placeholder="Contraseña"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
 
-      <p><button 
-          className="bg-transparent hover:bg-rojoVino text-rojoVino font-semibold
-                     hover:text-white py-2 px-4 border 
-                     border-rojoVino hover:border-transparent rounded"
-        >
-        Iniciar Sesión</button></p>
-      
-        
-     
+        <p>
+          <button
+            type="submit"
+            className="bg-transparent hover:bg-rojoVino text-rojoVino font-semibold
+                       hover:text-white py-2 px-4 border 
+                       border-rojoVino hover:border-transparent rounded"
+          >
+            Iniciar Sesión
+          </button>
+        </p>
+      </form>
+    </div>
+  );
+};
 
 
-
-
-    </div>
-  )
-}
