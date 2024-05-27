@@ -12,13 +12,13 @@ function App() {
     <Router>
       <div className="App">
         <NanvarHorizontal />
-        <header className="App-header">
+        
           <Routes>
             <Route path="/login" element={<InicioSesion />} />
             <Route path="/perfil" element={<PerfilPr />} />
             <Route path="/" element={<Navigate to="/login" />} />
           </Routes>
-        </header>
+        
       </div>
     </Router>
   );

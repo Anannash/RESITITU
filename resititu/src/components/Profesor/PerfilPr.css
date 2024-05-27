@@ -13,6 +13,13 @@
   flex-direction: column ;
 }
 
+.BotonMail{
+  margin-top: auto;
+  width: 858px;
+  height: 100px;
+  background-color: #792221;
+  color: #ddd;
+}
 
 
 .BodyPer{
