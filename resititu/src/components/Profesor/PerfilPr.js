@@ -8,6 +8,7 @@ const PerfilPr = () => {
   const [mostrarContenidoI, setMostrarContenidoI] = useState(false);
   const [datos, setDatos] = useState([]);
   const [mostrarContenidoA1, setMostrarContenidoA1] = useState(false);
+  const [IsChecked, setIsChecked] = useState(false);
   const [botonesVisibles, setBotonesVisibles] = useState({});
 
   const [estudiante, setEstudiante] = useState({
@@ -236,8 +237,9 @@ const PerfilPr = () => {
                     <td className="col-ingles">
                       <input
                         type="checkbox"
-                        checked={item.ingles}
-                        readOnly
+                        
+                        
+                       
                       />
                     </td>
                     <td className="col-solicitud">
@@ -245,6 +247,7 @@ const PerfilPr = () => {
                         type="checkbox"
                         checked={botonesVisibles[index] || false}
                         onChange={() => handleSolicitudChange(index)}
+                        readOnly
                       />
                     </td>
                   </tr>
