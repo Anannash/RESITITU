@@ -27,40 +27,40 @@ export const InicioSesion = () => {
   };
 
   return (
-    <div className='cuadro'>
-      <h1>Inicio de Sesión</h1>
-      {error && <p style={{ color: 'red' }}>{error}</p>}
+    <div className="BodyIS">
+      <div className='cuadro'>
+        <h1>Inicio de Sesión</h1>
+        {error && <p style={{ color: 'red' }}>{error}</p>}
 
-      <form onSubmit={handleLogin}>
-        <h3>Ingrese su número de control:</h3>
-        <input
-          type="text"
-          placeholder="Número de control"
-          value={controlNumber}
-          onChange={(e) => setControlNumber(e.target.value)}
-        />
+        <form onSubmit={handleLogin}>
+          <h3>Ingrese su número de control:</h3>
+          <input
+            type="text"
+            placeholder="Número de control"
+            value={controlNumber}
+            onChange={(e) => setControlNumber(e.target.value)}
+          />
 
-        <h3>Ingrese su contraseña:</h3>
-        <input
-          type="password"
-          placeholder="Contraseña"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
+          <h3>Ingrese su contraseña:</h3>
+          <input
+            type="password"
+            placeholder="Contraseña"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
 
-        <p>
-          <button
-            type="submit"
-            className="bg-transparent hover:bg-rojoVino text-rojoVino font-semibold
-                       hover:text-white py-2 px-4 border 
-                       border-rojoVino hover:border-transparent rounded"
-          >
-            Iniciar Sesión
-          </button>
-        </p>
-      </form>
-    </div>
-  );
+          <p>
+            <button
+              type="submit"
+              className="bg-transparent hover:bg-rojoVino text-rojoVino font-semibold
+                         hover:text-white py-2 px-4 border 
+                         border-rojoVino hover:border-transparent rounded"
+            >
+              Iniciar Sesión
+            </button>
+          </p>
+        </form>
+      </div>
+    </div>
+  );
 };
-
-

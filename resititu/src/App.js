@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import './App.css';
 import './tailwind.css'; 
 import { InicioSesion } from './components/Inicio/InicioSesion';
-import NanvarHorizontal from './components/Nanvar/NanvarHorizontal';
+import NanvarHorizontal from './components/Nanvar/NanvarHorizontal.js';
 import PerfilPr from './components/Profesor/PerfilPr.js';
 import React from 'react';
 

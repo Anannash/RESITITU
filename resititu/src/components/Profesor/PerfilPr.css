@@ -1,79 +1,126 @@
-.container {
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
-    height: 100vh;
-    color: #000;
-  }
+.container{
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  height: 100vh;
   
-  .NavegadorVer {
-    background-color: #39769a;
-    height: 800px;
-    width: 250px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-  }
-  
-  ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    width: 100%;
-  }
-  
-  li a {
-    display: block;
-    color: #000;
-    padding: 8px 16px;
-    text-decoration: none;
-    width: 100%;
-  }
-  
-  li a:hover {
-    background-color: #b7d5e4;
-    color: #fff;
-  }
-  
-  .table-container {
-    margin-left: 20px;
-    width: calc(100% - 270px); /* Ajustar el ancho total de la tabla */
-    font-size: 15px;
-  }
-  
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    table-layout: fixed; /* Hace que las columnas tengan un ancho fijo */
-  }
-  
-  th, td {
-    padding: 8px 12px;
-    text-align: left;
-    border: 1px solid #ddd;
-    word-wrap: break-word; /* Permite el ajuste de texto largo */
-    white-space: normal; /* Permite el ajuste de línea */
-    vertical-align: middle; /* Alineación vertical centrada */
-  }
-  
-  th {
-    background-color: #39769a;
-    color: white;
-  }
-  
-  tr:nth-child(even) {
-    background-color: #f2f2f2;
-  }
-  
-  tr:nth-child(odd) {
-    background-color: #fff;
-  }
-  
-  tr:hover {
-    background-color: #ddd;
-  }
-  
-  input[type="checkbox"] {
-    transform: scale(1.2); /* Hace que las casillas de verificación sean más grandes y fáciles de interactuar */
-  }
+  background-color: #eeebed;
+}
+.IngresoTemporal{
+  display: flex;
+  background-color: #eeebed;
+  margin-left: 50px;
+  flex-direction: column ;
+}
+
+
+
+.BodyPer{
+  margin: 0;
+  padding: 0;
+  height: 140vh;
+  width: 500vh;
+  display: flex;
+  background-color: #eeebed;
+  color: #000;
+}
+
+
+.NavegadorVer {
+  background-color: #39769a;
+  height: 140vh;
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+li a {
+  display: block;
+  color: #000;
+  padding: 8px 16px;
+  text-decoration: none;
+  width: 100%;
+}
+
+li a:hover {
+  background-color: #b7d5e4;
+  color: #fff;
+}
+
+.table-container {
+  margin-left: 20px;
+  width: calc(100% - 70px); /* Ajustar el ancho total de la tabla */
+  font-size: 15px;
+  margin-top: 20px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed; /* Hace que las columnas tengan un ancho fijo */
+}
+
+th, td {
+  padding: 8px 12px;
+  text-align: left;
+  border: 1px solid #ddd;
+  word-wrap: break-word; /* Permite el ajuste de texto largo */
+  white-space: normal; /* Permite el ajuste de línea */
+  vertical-align: middle; /* Alineación vertical centrada */
+}
+
+th {
+  background-color: #39769a;
+  color: white;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+tr:nth-child(odd) {
+  background-color: #fff;
+}
+
+tr:hover {
+  background-color: #ddd;
+}
+
+input[type="checkbox"] {
+  max-width: 20px; /* Tamaño máximo deseado */
+  max-height: 20px; /* Tamaño máximo deseado */
+}
+
+/* Ajustar la posición vertical de las casillas de verificación */
+input[type="checkbox"] {
+  margin: 0; /* Eliminar cualquier margen que pueda desalinear las casillas */
+  vertical-align: center; /* Alinear verticalmente las casillas en el centro */
+  position: relative; /* Asegura que las casillas se posicionen correctamente */
+  top: -1px; /* Ajuste fino para centrar verticalmente */
+}
+
+/* Definición de anchos personalizados para las columnas */
+.col-control {
+  width: 10%; /* Ajusta según tus necesidades */
+}
+
+.col-nombre {
+  width: 20%; /* Ajusta según tus necesidades */
+}
+
+.col-fecha {
+  width: 8%; /* Ajusta según tus necesidades */
+}
+
+.col-correo {
+  width: 30%; /* Ajusta según tus necesidades */
+}

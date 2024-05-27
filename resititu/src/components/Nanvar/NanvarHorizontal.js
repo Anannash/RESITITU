@@ -19,7 +19,7 @@ const NanvarHorizontal = () => {
        
         </nav>
         <nav>
-         <span><strong>Recidencias y Titulacion</strong></span>
+         <span><strong>Residencias y Titulación</strong></span>
           </nav>
         
     </div>
@@ -42,7 +42,7 @@ const NanvarHorizontalVer2 = () => {
        
         </nav>
         <nav>
-         <span><strong>Recidencias y Titulacion</strong></span>
+         <span><strong>Residencias y Titulación</strong></span>
           </nav>
         
     </div>

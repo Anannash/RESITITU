@@ -15,6 +15,7 @@ module.exports = {
       
       colors:{
         'rojoVino' : '#792221',
+        'fondoB' : '#eeebed',
       },
 
 
