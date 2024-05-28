@@ -1,14 +1,31 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './InicioS.css';
+import axios from 'axios';
 
 export const InicioSesion = () => {
   const [controlNumber, setControlNumber] = useState('');
   const [password, setPassword] = useState('');
   const [error] = useState('');
   const navigate = useNavigate();
+  const [datos,setDatos] = useState([]);
+  
+
+  //sacar los datos de la tabla adminnistrador
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get('http://localhost:5000/api/administrador');
+        setDatos(response.data);
+      } catch (error) {
+        toast.error('Error al obtener los datos:', error);
+      }
+    };
+
+    fetchData();
+  }, []);
 
   const handleLogin = (e) => {
     e.preventDefault();

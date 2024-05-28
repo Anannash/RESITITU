@@ -1,9 +1,10 @@
 
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate , useLocation} from 'react-router-dom';
 import './App.css';
 import './tailwind.css'; 
 import { InicioSesion } from './components/Inicio/InicioSesion';
 import NanvarHorizontal from './components/Nanvar/NanvarHorizontal.js';
+
 import PerfilPr from './components/Profesor/PerfilPr.js';
 import React from 'react';
 

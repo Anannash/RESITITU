@@ -80,12 +80,24 @@ const proyecto = new mongoose.Schema({
 
 });
 
+const administrativo = new mongoose.Schema({
+  idAdmin: Number,  
+  nombreA: String,
+  apellidoPA: String,
+  apellidoMA: String,
+  contrasenaA: String
+  //imagen:Buffer
+
+
+});
+
 
 // Crear el modelo
 const Estudiante = mongoose.model('Estudiantes', estudiantesC);
 const aseExt = mongoose.model('AsesorEXT', asesorExt);
 const aseInt = mongoose.model("AsesorINT", asesorInt);
 const Proyecto = mongoose.model("Proyectos", proyecto);
+const Administrativo = mongoose.model('Administrativo', administrativo);
 
 
 //Ruta para anadir a un estudiante
@@ -107,6 +119,32 @@ app.post('/api/estudiantes', async (req, res) => {
       contrasena: req.body.contrasena,
     });
 
+    
+
+          //Ruta para anadir a un Administrador
+app.post('/api/administrador', async (req, res) => {
+  try {
+    const newEsti = new Administrativo({
+      NoControl: req.body.idAdmin,
+      nombre: req.body.nombreA,
+      apellidoP: req.body.apellidoPA,
+      apellidoM: req.body.apellidoMA,
+      contrasena: req.body.contrasenaA,
+    });
+
+    const item = await newEsti.save();
+    res.status(200).send(item);
+  } catch (err) {
+    res.status(500).send(err);
+  }
+});
+
+
+
+
+
+
+
     const item = await newEsti.save();
     res.status(200).send(item);
   } catch (err) {
@@ -118,6 +156,17 @@ app.get('/api/estudiantes', async (req, res) => {
   try {
     const estudiantes = await Estudiante.find();
     res.status(200).send(estudiantes);
+  } catch (err) {
+    res.status(500).send(err);
+  }
+});
+
+
+//Ruta para obtener datos de los Adminsitrativos
+app.get('/api/administrador', async (req, res) => {
+  try {
+    const administrador = await Administrativo.find();
+    res.status(200).send(administrador);
   } catch (err) {
     res.status(500).send(err);
   }

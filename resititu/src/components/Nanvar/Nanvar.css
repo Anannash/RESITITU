@@ -1,37 +1,36 @@
 nav{
-    background-color: #792221;
-    font-size: 30px; /*Tamno de la letra */
-    color: #FAFAFA; /*Color letra*/
-    display: flex; /*nose :3*/
-    justify-content: center; 
-    height: 50px; 
-    
+  background-color: #792221;
+  font-size: 30px; /*Tamno de la letra */
+  color: #FAFAFA; /*Color letra*/
+  display: flex; /*nose :3*/
+  justify-content: center; 
+  height: 50px; 
+  
 }
 
 .image-container {
-    display: flex;
-    align-items: center; /* Alinea verticalmente */
-   
-  }
-  
-  .logo-img {
-    width: 100px; /* Ancho deseado para la imagen */
-    height: auto; /* Altura ajustada automáticamente */
-    margin-left: -450px;
-    margin-top: 100px;
-    margin-bottom: 60px;
-  }
-  span{
-
-    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    align-items: center;
-    padding: -25px;
-    text-align: center;
-  }
+  display: flex;
+  align-items: center; /* Alinea verticalmente */
  
-  p{
-    padding: -25px;
-    font-size: 45px; 
-    padding-bottom: -500px;
-  }
+}
 
+.logo-img {
+  width: 100px; /* Ancho deseado para la imagen */
+  height: auto; /* Altura ajustada automáticamente */
+  margin-left: -450px;
+  margin-top: 100px;
+  margin-bottom: 60px;
+}
+span{
+
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  align-items: center;
+  padding: -25px;
+  text-align: center;
+}
+
+p{
+  padding: -25px;
+  font-size: 45px; 
+  padding-bottom: -500px;
+}

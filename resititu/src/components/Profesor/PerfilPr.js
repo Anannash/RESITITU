@@ -41,7 +41,7 @@ const PerfilPr = () => {
   const handleAnexo2Click = () => {
     setMostrarContenidoA2(!mostrarContenidoA2);
   };
-
+//insertar nuevos datos
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setEstudiante({
@@ -49,7 +49,7 @@ const PerfilPr = () => {
       [name]: value
     });
   };
-
+//colocacion de datos en  las casillas / funcion del boton
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -78,7 +78,7 @@ const PerfilPr = () => {
         toast.error('Error al añadir el estudiante:', error);
       });
   };
-
+//obtencion de datos
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -258,6 +258,17 @@ const PerfilPr = () => {
                 <input
                   type='Date'
                   name='FechaSol'
+                  value={estudiante.FechaSol}
+                  onChange={handleInputChange}
+                />
+              </div>
+
+
+              <div>
+                <label style={{ display: 'block' }}>Subir Archivo</label>
+                <input
+                  type='file'
+                  name='archivo'
                   value={estudiante.FechaSol}
                   onChange={handleInputChange}
                 />
