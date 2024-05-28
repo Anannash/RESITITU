@@ -1,4 +1,6 @@
 import React, { useState , useEffect } from 'react';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import './PerfilPr.css';
 import axios from 'axios';
 
@@ -8,6 +10,7 @@ const PerfilPr = () => {
   const [mostrarContenidoI, setMostrarContenidoI] = useState(false);
   const [datos, setDatos] = useState([]);
   const [mostrarContenidoA1, setMostrarContenidoA1] = useState(false);
+  const [mostrarContenidoA2, setMostrarContenidoA2] = useState(false);
   const [IsChecked, setIsChecked] = useState(false);
   const [botonesVisibles, setBotonesVisibles] = useState({});
 
@@ -20,8 +23,10 @@ const PerfilPr = () => {
     semestre: '',
     carrera: '',
     correo: '',
-    FechaSol: new Date().toISOString().split('T')[0],
+    FechaSol: new Date().toLocaleDateString('en-US'),
     ingles: '',
+    recidencias: '',
+    expediente: '',
     contrasena: '',
   });
 
@@ -31,6 +36,10 @@ const PerfilPr = () => {
 
   const handleAnexo1Click = () => {
     setMostrarContenidoA1(!mostrarContenidoA1);
+  };
+
+  const handleAnexo2Click = () => {
+    setMostrarContenidoA2(!mostrarContenidoA2);
   };
 
   const handleInputChange = (e) => {
@@ -56,13 +65,17 @@ const PerfilPr = () => {
           semestre: 0,
           carrera: '',
           correo: '',
-          FechaSol: new Date().toISOString().split('T')[0],
+          FechaSol: new Date().toLocaleDateString(),
           ingles: '',
+          recidencias: '',
+          expediente: '',
           contrasena: '',
+          
         });
+        toast.success('Registro Completado')
       })
       .catch(error => {
-        console.error('Error al añadir el estudiante:', error);
+        toast.error('Error al añadir el estudiante:', error);
       });
   };
 
@@ -72,7 +85,7 @@ const PerfilPr = () => {
         const response = await axios.get('http://localhost:5000/api/estudiantes');
         setDatos(response.data);
       } catch (error) {
-        console.error('Error al obtener los datos:', error);
+        toast.error('Error al obtener los datos:', error);
       }
     };
 
@@ -86,9 +99,19 @@ const PerfilPr = () => {
     }));
   };
 
-  const handleEnviarCorreo = (correo) => {
-    window.location.href = 'mailto:vinc_syc@chihuahua2.tecnm.mx?subject=Solicitar Titulacion&body=Aqui coloca la solicitud"';
-    
+  const handleEnviarCorreoV = (nombreEstudiante) => {
+    window.location.href = `mailto:vinc_syc@chihuahua2.tecnm.mx?subject=Solicitar Titulacion de ${nombreEstudiante}&body=Aqui coloca la solicitud`;
+    toast('Redireccionado a su correo', {
+      icon: '👏',
+    });
+  };
+
+  const handleEnviarCorreoE = (correoEstudiante) => {
+    window.location.href = `mailto:${correoEstudiante}?subject=Se acepto el proceso de Titulacion por parte de 
+    Vinculacion &body=Felicidades, ahora ...`;
+    toast('Redireccionado a su correo', {
+      icon: '👏',
+    });
   };
 
   return (
@@ -98,12 +121,12 @@ const PerfilPr = () => {
           <ul>
             <li><a href="#" onClick={handleInicioClick}>Inicio</a></li>
             <li><a href="#" onClick={handleAnexo1Click}>Anexo 1</a></li>
-            <li><a href="#">Anexo 2</a></li>
+            <li><a href="#" onClick={handleAnexo2Click}>Anexo 2</a></li>
             <li><a href="#">Anexo 3</a></li>
             <li><a href="#">Anexo 4</a></li>
           </ul>
         </nav>
-
+          {/* *************************************INICIO ******************************** */}
         {mostrarContenidoI && (
           <div className="IngresoTemporal bg-fondoB">
             <h1 className='bg'>Registro Temporal</h1>
@@ -180,6 +203,37 @@ const PerfilPr = () => {
               </div>
 
               <div>
+                <label style={{ display: 'block' }}>Ingles</label>
+                <select name="ingles"  
+                value={estudiante.ingles}
+                onChange={handleInputChange}>
+                <option value="Si">Si</option>
+                <option value="No">No</option>
+                </select>
+                </div>
+
+                <div>
+                <label style={{ display: 'block' }}>Recidencias</label>
+                <select name="recidencias"  
+                value={estudiante.recidencias}
+                onChange={handleInputChange}>
+                <option value="Si">Si</option>
+                <option value="No">No</option>
+                </select>
+                </div>
+               
+
+                <div>
+                <label style={{ display: 'block' }}>Expediente</label>
+                <select name="expediente"  
+                value={estudiante.expediente}
+                onChange={handleInputChange}>
+                <option value="Si">Si</option>
+                <option value="No">No</option>
+                </select>
+                </div>
+
+              <div>
                 <label style={{ display: 'block' }}>No. de creditos</label>
                 <input
                   type='Number'
@@ -209,11 +263,14 @@ const PerfilPr = () => {
                 />
               </div>
 
+              
+
               <button>Guardar</button>
             </form>
           </div>
         )}
 
+          {/* ****************************ANEXO 1************************************** */}
         {mostrarContenidoA1 && (
           <div className="table-container bg-fondoB">
             <table>
@@ -225,19 +282,23 @@ const PerfilPr = () => {
                   <th className="col-correo">Correo Institucional</th>
                   <th className="col-ingles">Inglés</th>
                   <th className="col-solicitud">Solicitud</th>
+                  <th className="col-acciones">Envio</th>
                 </tr>
               </thead>
               <tbody>
                 {datos.map((item, index) => (
                   <tr key={index}>
                     <td className="col-control">{item.NoControl}</td>
-                    <td className="col-nombre">{item.nombre + " " + item.apellidoP + " " + item.apellidoM}</td>
+                    <td className="col-nombre">{`${item.nombre} ${item.apellidoP} ${item.apellidoM}`}</td>
                     <td className="col-fecha">{item.FechaSol}</td>
-                    <td className="col-correo">{item.correo}</td>
+                    <td className="col-correo">{`${item.correo}`}</td>
                     <td className="col-ingles">
                       <input
+                     
                         type="checkbox"
-                        
+                        checked={item.ingles === ("Si" || "SI" || 'si')}
+                       
+                        readOnly
                         
                        
                       />
@@ -249,21 +310,89 @@ const PerfilPr = () => {
                         onChange={() => handleSolicitudChange(index)}
                         readOnly
                       />
+                      
+                    </td>
+                    <td className="col-acciones">
+                      {botonesVisibles[index] && (
+                        <button
+                          className='BotonMail font-bold text-2xl text-neutral-50'
+                          onClick={() => handleEnviarCorreoV(`${item.nombre} ${item.apellidoP} ${item.apellidoM} ${item.NoControl}`)}
+                        >
+                          Enviar correo a Vinculacion
+                        </button>
+                      )}
                     </td>
                   </tr>
                 ))}
               </tbody>
             </table>
-            {Object.keys(botonesVisibles).map(index => botonesVisibles[index] && (
-              <div key={index}>
-                <button className='BotonMail font-bold text-2xl text-neutral-50' onClick= {handleEnviarCorreo}>
-                  Enviar correo a Vinculacion  Sistemas Y Computacion ITCH II
-                </button>
-              </div>
-            ))}
+           
           </div>
         )}
+
+            {/* ***************************************ANEXO 2*************************************/}
+          {mostrarContenidoA2 &&(
+              <div className="table-container">
+                <table>
+              <thead>
+                <tr>
+                  <th className="col-control">No. Control</th>
+                  <th className="col-nombre">Nombre</th>
+                  <th className="col-fecha">Fecha Solicitud</th>
+                  <th className="col-Recidencias">Recidencias</th>
+                  <th className="col-expediente">Expediente</th>
+                  <th className="col-notificar">Notificar</th>
+                </tr>
+              </thead>
+              <tbody>
+                {datos.map((item, index) => (
+                  <tr key={index}>
+                    <td className="col-control">{item.NoControl}</td>
+                    <td className="col-nombre">{`${item.nombre} ${item.apellidoP} ${item.apellidoM}`}</td>
+                    <td className="col-fecha">{item.FechaSol}</td>
+                    <td className="col-Recidencias">
+                      <input
+                     
+                        type="checkbox"
+                        checked={item.recidencias === ("Si" || "SI" || 'si')}
+                       
+                        readOnly
+                        
+                       
+                      />
+                    </td>
+                    <td className="col-expediente">
+                      <input
+                        type="checkbox"
+                        checked={item.Expediente === ("Si" || "SI" || 'si')}
+                       
+                        readOnly
+                      />
+                      
+                    </td>
+                    <td className="col-notificar">
+                      
+                        <button
+                          className='BotonMail font-bold text-2xl text-neutral-50'
+                          onClick={() => handleEnviarCorreoE(`${item.correo}`)}
+                        >
+                          Enviar correo al Estudiante
+                        </button>
+                     
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+
+
+              </div>
+
+
+          )}
+
       </div>
+      <ToastContainer />
     </div>
   );
 };

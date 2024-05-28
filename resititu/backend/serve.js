@@ -30,6 +30,8 @@ const estudiantesC = new mongoose.Schema({
   correo: String,
   FechaSol: Date,
   ingles: String,
+  recidencias: String,
+  expediente: String,
   contrasena:String,
 
 });
@@ -100,6 +102,8 @@ app.post('/api/estudiantes', async (req, res) => {
       correo: req.body.correo,
       FechaSol: req.body.FechaSol,
       ingles: req.body.ingles,
+      recidencias: req.body.recidencias,
+      Expediente: req.body.expediente,
       contrasena: req.body.contrasena,
     });
 

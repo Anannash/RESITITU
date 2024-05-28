@@ -14,11 +14,15 @@
 }
 
 .BotonMail{
-  margin-top: auto;
-  width: 858px;
-  height: 100px;
+
+ 
+ text-align: center;
+  width: 130px;
+  height: 50px;
   background-color: #792221;
   color: #ddd;
+  font-size: small;
+  line-height: 15px;
 }
 
 
@@ -36,11 +40,12 @@
 .NavegadorVer {
   background-color: #39769a;
   height: 140vh;
-  width: 250px;
+  width: 250px; /* Ancho fijo en píxeles */
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
+  
 }
 
 ul {
@@ -53,19 +58,23 @@ ul {
 li a {
   display: block;
   color: #000;
-  padding: 8px 16px;
+  
   text-decoration: none;
-  width: 100%;
+  padding: 8px 50px;
+  font-size:  30px;
+  
+  
 }
 
 li a:hover {
   background-color: #b7d5e4;
   color: #fff;
+  margin-right: -10px;
 }
 
 .table-container {
-  margin-left: 20px;
-  width: calc(100% - 70px); /* Ajustar el ancho total de la tabla */
+  margin-left: 30px;
+  width: calc(100% - 100px); /* Ajustar el ancho total de la tabla */
   font-size: 15px;
   margin-top: 20px;
 }
@@ -130,4 +139,14 @@ input[type="checkbox"] {
 
 .col-correo {
   width: 30%; /* Ajusta según tus necesidades */
+}
+.col-solicitud{
+  width: 75px;
+}
+.col-ingles{
+  width: 50px;
+}
+.col-acciones{
+  width: 120px;
+  margin-left: 2px;
 }

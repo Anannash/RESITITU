@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import './InicioS.css';
 
 export const InicioSesion = () => {
   const [controlNumber, setControlNumber] = useState('');
   const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
+  const [error] = useState('');
   const navigate = useNavigate();
 
   const handleLogin = (e) => {
@@ -13,7 +15,7 @@ export const InicioSesion = () => {
 
     // Validación simple de los campos de entrada
     if (!controlNumber || !password) {
-      setError('Por favor, ingrese su número de control y contraseña.');
+      toast.error('Por favor, ingrese su número de control y contraseña.');
       return;
     }
 
@@ -22,7 +24,7 @@ export const InicioSesion = () => {
       // Redirigir a otra página en caso de éxito
       navigate('/perfil');
     } else {
-      setError('Número de control o contraseña incorrectos.');
+      toast.error('Número de control o contraseña incorrectos.');
     }
   };
 
@@ -60,6 +62,8 @@ export const InicioSesion = () => {
             </button>
           </p>
         </form>
+        <ToastContainer />
+
       </div>
     </div>
   );
